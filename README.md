@@ -1,2 +1,4 @@
 # CursoAngular
-Codigo perteneciente al curso de Angular 10
+
+Código perteneciente al curso de Angular 10
+
