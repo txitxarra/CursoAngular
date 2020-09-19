@@ -1,0 +1,11 @@
+<h1>Buscar: {{heroe}}</h1>
+
+<hr>
+
+<div *ngIf="heroes.length === 0" class="alert alert-info">
+    <p>No hay resultados para el termino de busqueda</p>
+</div>
+
+<div *ngIf="heroes.length > 0" class="card-columns">
+    <app-heroe-tarjeta [heroe]="heroePu" [indice]="heroePu.idx" (heroeSeleccionado)="verHeroe($event)" *ngFor="let heroePu of heroes"></app-heroe-tarjeta>
+</div>
