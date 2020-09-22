@@ -1,0 +1,6 @@
+<app-loading *ngIf="loading && !error"></app-loading>
+<div *ngIf="error" class="alert alert-danger">
+    <h3>Error</h3>
+    <p>Se ha producido un error cargando los datos desde Spotify</p>
+</div>
+<app-card [items]="nuevosReales"></app-card>
