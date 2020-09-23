@@ -6,3 +6,4 @@ Código perteneciente al curso de Angular 10
 - 02.Ejemplo de SPA
 - 03.Pipes
 - 04.SpotyApp
+- 05.Lista de Deseos Ionic
