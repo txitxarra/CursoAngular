@@ -9,16 +9,29 @@ const routes: Routes = [
     children: [
       {
         path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-      },
-      {
-        path: 'agregar/:id',
-        loadChildren: () => import('../agregar/agregar.module').then( m => m.AgregarPageModule)
+        children: [
+          {
+            path: 'agregar/:id',
+            loadChildren: () => import('../agregar/agregar.module').then( m => m.AgregarPageModule)
+          }, {
+            path: '',
+            loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+          }
+        ]
       },
       {
         path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-      },
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+          },
+          {
+            path: 'agregar/:id',
+            loadChildren: () => import('../agregar/agregar.module').then( m => m.AgregarPageModule)
+          }
+        ]
+        },
       {
         path: '',
         redirectTo: '/tabs/tab1',

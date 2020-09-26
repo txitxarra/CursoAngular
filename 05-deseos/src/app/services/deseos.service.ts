@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { element } from 'protractor';
 import { Lista } from '../models/lista.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeseosService {
+
+
 
   lista: Lista[] = [];
 
@@ -26,11 +29,14 @@ export class DeseosService {
     return this.lista.find( element => {
       return element.id === id;
     });
-    // this.lista.forEach(element => {
-    //   if (element.id === id){
-    //     return element;
-    //   }
-    // });
+  }
+
+
+  borrarLista(lista: Lista) {
+    this.lista = this.lista.filter(element =>{
+      return element.id  !== lista.id;
+    })
+    this.guardarLocal();
   }
 
   guardarLocal(){
