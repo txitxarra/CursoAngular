@@ -7,8 +7,6 @@ import { Lista } from '../models/lista.model';
 })
 export class DeseosService {
 
-
-
   lista: Lista[] = [];
 
   constructor() {
@@ -26,21 +24,28 @@ export class DeseosService {
 
     id = Number(id);
 
-    return this.lista.find( element => {
-      return element.id === id;
+    return this.lista.find( data => {
+      return data.id === id;
     });
   }
 
 
   borrarLista(lista: Lista) {
-    this.lista = this.lista.filter(element =>{
-      return element.id  !== lista.id;
-    })
+    this.lista = this.lista.filter( data => {
+      return data.id  !== lista.id;
+    });
     this.guardarLocal();
   }
 
   guardarLocal(){
     localStorage.setItem('data', JSON.stringify(this.lista));
+  }
+
+  editar(titulo: string, lista: Lista) {
+    const listaBuscada: Lista = this.obtenerLista(lista.id);
+    listaBuscada.titulo = titulo;
+    this.guardarLocal();
+
   }
 
   recuperarLocal(){

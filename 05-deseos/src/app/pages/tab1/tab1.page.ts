@@ -20,39 +20,39 @@ export class Tab1Page {
   }
 
   async agregarLista(){
-      const alert = await this.alertController.create({
-        cssClass: 'my-custom-class',
-        header: 'Nueva Lista',
-        inputs: [
-          {
-            name: 'titulo',
-            type: 'text'
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Nueva Lista',
+      inputs: [
+        {
+          name: 'titulo',
+          type: 'text'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
           }
-        ],
-        buttons: [
-          {
-            text: 'Cancelar',
-            role: 'cancel',
-            cssClass: 'secondary',
-            handler: () => {
-              console.log('Confirm Cancel');
+        }, {
+          text: 'Crear',
+          handler: (data) => {
+            if (data.titulo.lenght === 0){
+              return;
             }
-          }, {
-            text: 'Crear',
-            handler: (data) => {
-              if (data.titulo.lenght === 0){
-                return;
-              }
-              const id: number = this.deseosService.crearLista(data.titulo);
-              this.router.navigateByUrl(`/tabs/tab1/agregar/${id}`);
-            }
+            const id: number = this.deseosService.crearLista(data.titulo);
+            this.router.navigateByUrl(`/tabs/tab1/agregar/${id}`);
           }
-        ]
-      });
+        }
+      ]
+    });
 
-      await alert.present();
-    // this.router.navigateByUrl('/tabs/tab1/agregar');
+    await alert.present();
+  // this.router.navigateByUrl('/tabs/tab1/agregar');
 
-  }
+}
 
 }
