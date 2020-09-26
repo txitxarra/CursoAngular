@@ -4,6 +4,10 @@ import { Tab1Page } from './tab1.page';
 
 const routes: Routes = [
   {
+    path: 'agregar/:id',
+    loadChildren: () => import('../agregar/agregar.module').then( m => m.AgregarPageModule)
+  },
+  {
     path: '',
     component: Tab1Page,
   }

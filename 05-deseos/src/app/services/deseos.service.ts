@@ -9,11 +9,37 @@ export class DeseosService {
   lista: Lista[] = [];
 
   constructor() {
-      const lista1 = new Lista('Recolectar piedras');
-      const lista2 = new Lista('Dominar a la humanidad');
+      this.recuperarLocal();
+  }
 
-      this.lista.push(lista1, lista2);
+  crearLista(lista: string){
+    const lista1: Lista  = new Lista(lista);
+    this.lista.push(lista1);
+    this.guardarLocal();
+    return lista1.id;
+  }
 
+  obtenerLista(id: number | string){
 
+    id = Number(id);
+
+    return this.lista.find( element => {
+      return element.id === id;
+    });
+    // this.lista.forEach(element => {
+    //   if (element.id === id){
+    //     return element;
+    //   }
+    // });
+  }
+
+  guardarLocal(){
+    localStorage.setItem('data', JSON.stringify(this.lista));
+  }
+
+  recuperarLocal(){
+    if (localStorage.getItem('data')){
+      this.lista = JSON.parse(localStorage.getItem('data'));
+    }
   }
 }
