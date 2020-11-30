@@ -8,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClasesComponent implements OnInit {
 
+  propiedades:any = {
+    danger: false
+  };
+
+  alerta:string = 'alert-danger';
+
+
+
   constructor() { }
 
   ngOnInit(): void {
