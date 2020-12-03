@@ -7,3 +7,4 @@ Código perteneciente al curso de Angular 10
 - 03.Pipes
 - 04.SpotyApp
 - 05.Lista de Deseos Ionic
+- 06.Miscelaneos
